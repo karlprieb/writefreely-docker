@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+echo " "
+echo $ADMIN
+echo " "
 CONFIG_FILE=/config/config.ini
 DB_FILE=/data/writefreely.db
 KEY_FILE=/data/keys/email.aes256
@@ -25,6 +28,7 @@ fi
 
 if [ ! -s ${DB_FILE} ]; then
     ${WRITEFREELY} -init-db
+    ${WRITEFREELY} -create-admin $USER:$PASSWORD
 fi
 
 if [ ! -e ${KEY_FILE} ]; then
