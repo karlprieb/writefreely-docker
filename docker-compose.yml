@@ -1,6 +1,9 @@
 services:
   writefreely:
-    build: .
+    build:
+      context: .
+      args:
+        VERSION: v0.13.0
     restart: unless-stopped
     ports:
       - 8080:8080

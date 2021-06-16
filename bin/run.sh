@@ -43,4 +43,3 @@ if [ ! -e ${KEY_FILE} ]; then
 fi
 
 exec ${WRITEFREELY}
-
