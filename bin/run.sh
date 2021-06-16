@@ -1,9 +1,6 @@
 #!/bin/sh
 set -e
 
-echo " "
-echo $ADMIN
-echo " "
 CONFIG_FILE=/config/config.ini
 DB_FILE=/data/writefreely.db
 KEY_FILE=/data/keys/email.aes256
@@ -12,6 +9,16 @@ WRITEFREELY="/writefreely/writefreely -c ${CONFIG_FILE}"
 if [ ! -s ${CONFIG_FILE} ]; then
     echo "ERROR: no config.ini file"
     exit 0
+fi
+
+if [ ! -d "/data/templates" ]; then
+    echo "Copying default templates"
+    cp -r /writefreely/templates/ /data/templates/
+fi
+
+if [ ! -d "/data/pages" ]; then
+    echo "Copying default pages"
+    cp -r /writefreely/pages/ /data/pages/
 fi
 
 if [ -e ${DB_FILE} ] && [ -e ${KEY_FILE} ]; then
