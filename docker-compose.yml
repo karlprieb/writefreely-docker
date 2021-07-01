@@ -3,7 +3,7 @@ services:
     build:
       context: .
       args:
-        VERSION: v0.13.0
+        VERSION: v0.13.1
     restart: unless-stopped
     ports:
       - 8080:8080
