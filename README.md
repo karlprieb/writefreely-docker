@@ -32,6 +32,8 @@ and lunch:
 docker-compose up -d
 ```
 
+It will create/populate data folder with keys, pages, templates and the sqlite db file. You can backup this folder and also change pages and templates. To update pages and templates you need to restart the container.
+
 If you will run writefreely behind a reverse proxy, which is recommended, you will also need to implement that on docker-compose.yml or add the correct networks if you're already running a reverse proxy.
 
 Please feel free to open issues, reporting problems or to request new features. Also open new PRs if you feel that make sense. 😁
