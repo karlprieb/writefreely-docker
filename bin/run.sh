@@ -35,7 +35,7 @@ fi
 
 if [ ! -s ${DB_FILE} ]; then
     ${WRITEFREELY} -init-db
-    ${WRITEFREELY} -create-admin $USER:$PASSWORD
+    ${WRITEFREELY} -create-admin $USERNAME:$PASSWORD
 fi
 
 if [ ! -e ${KEY_FILE} ]; then

@@ -1,6 +1,7 @@
 # Build image
 FROM alpine:3.14 as build
 
+ARG REPOSITORY
 ARG VERSION
 
 ENV GOPATH /go
@@ -14,7 +15,7 @@ RUN echo "@community http://dl-cdn.alpinelinux.org/alpine/v3.14/community" >> /e
     npm install -g less less-plugin-clean-css
 
 RUN mkdir -p /go/src/github.com/writefreely/writefreely/ && \
-    git clone https://github.com/writefreely/writefreely.git /go/src/github.com/writefreely/writefreely/ -b $VERSION
+    git clone $REPOSITORY /go/src/github.com/writefreely/writefreely/ -b $VERSION
 
 WORKDIR /go/src/github.com/writefreely/writefreely/
 

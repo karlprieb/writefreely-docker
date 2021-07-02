@@ -18,15 +18,16 @@ Clone the repository:
 git clone https://github.com/karlprieb/writefreely-docker.git
 ```
 
-Change/fill your writefreely configuration on `config/config.ini`
-
-Open docker-compose.yml file so you can:
-* choose the writefreely version that you want
+Edit `.env` file so you can:
+* choose the writefreely repository and version that you want
 * choose external port
 * set the admin username and password
-* change the volumes
 
-and lunch:
+Change/fill your writefreely configuration on `config/config.ini`
+
+You can change your volumes bind on `docker-compose.yml` if you want.
+
+Launch:
 
 ``` sh
 docker-compose up -d
