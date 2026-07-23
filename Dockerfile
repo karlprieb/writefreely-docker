@@ -1,5 +1,5 @@
 # Build image
-FROM alpine:3.22 as build
+FROM alpine:3.23 as build
 
 ARG REPOSITORY
 ARG VERSION
@@ -8,7 +8,7 @@ ENV GOPATH /go
 ENV PATH $GOPATH/bin:$PATH
 ENV GO111MODULE=on
 
-RUN echo "@community http://dl-cdn.alpinelinux.org/alpine/v3.22/community" >> /etc/apk/repositories && \
+RUN echo "@community http://dl-cdn.alpinelinux.org/alpine/v3.23/community" >> /etc/apk/repositories && \
     apk add --no-cache nodejs-current npm go make g++ git && \
     npm install -g less less-plugin-clean-css
 
@@ -33,7 +33,7 @@ RUN cd prose && \
     npm run-script build
 
 # Final image
-FROM alpine:3.22
+FROM alpine:3.23
 
 RUN apk add --no-cache openssl ca-certificates
 
