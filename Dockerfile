@@ -14,9 +14,7 @@ RUN echo "@community http://dl-cdn.alpinelinux.org/alpine/v3.22/community" >> /e
 
 WORKDIR /tmp
 
-RUN git clone https://github.com/writefreely/writefreely.git && \
-    cd writefreely && \
-    git checkout "v${VERSION}"
+RUN git clone --depth 1 --branch v${VERSION} https://github.com/writefreely/writefreely.git
 
 WORKDIR /tmp/writefreely
 
